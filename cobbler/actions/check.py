@@ -20,10 +20,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 
 
 import glob
+import logging
 import os
 import re
 
-from cobbler import clogger
 from cobbler import utils
 
 
@@ -33,18 +33,15 @@ class CobblerCheck:
     serving up content. This is the code behind 'cobbler check'.
     """
 
-    def __init__(self, collection_mgr, logger=None):
+    def __init__(self, collection_mgr):
         """
         Constructor
 
         :param collection_mgr: The collection manager which holds all information.
-        :param logger: The logger to audit all actions with.
         """
         self.collection_mgr = collection_mgr
         self.settings = collection_mgr.settings()
-        if logger is None:
-            logger = clogger.Logger()
-        self.logger = logger
+        self.logger = logging.getLogger()
         self.checked_family = ""
 
     def run(self):

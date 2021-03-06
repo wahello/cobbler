@@ -21,12 +21,14 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 02110-1301  USA
 """
 
-import simplejson
 import time
 import xmlrpc.client
+
+import simplejson
 import yaml
-from cobbler.cobbler_collections import manager
+
 from cobbler import download_manager
+from cobbler.cobbler_collections import manager
 
 
 class CobblerSvc:
@@ -46,8 +48,7 @@ class CobblerSvc:
         self.remote = None
         self.req = req
         self.collection_mgr = manager.CollectionManager(self)
-        self.logger = None
-        self.dlmgr = download_manager.DownloadManager(self.collection_mgr, self.logger)
+        self.dlmgr = download_manager.DownloadManager(self.collection_mgr)
 
     def __xmlrpc_setup(self):
         """
