@@ -71,7 +71,7 @@ RUN echo "dash dash/sh boolean false" | debconf-set-selections && \
 COPY ./docker/Debian10/supervisord/supervisord.conf /etc/supervisord.conf
 COPY ./docker/Debian10/supervisord/conf.d /etc/supervisord/conf.d
 
-COPY . /usr/src/cobbler
+COPY ../.. /usr/src/cobbler
 WORKDIR /usr/src/cobbler
 
 VOLUME /usr/src/cobbler/deb-build

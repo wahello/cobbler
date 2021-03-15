@@ -65,7 +65,7 @@ RUN touch /var/lib/rpm/* &&   \
 COPY ./docker/Fedora33/supervisord/supervisord.conf /etc/supervisord.conf
 COPY ./docker/Fedora33/supervisord/conf.d /etc/supervisord/conf.d
 
-COPY . /usr/src/cobbler
+COPY ../.. /usr/src/cobbler
 WORKDIR /usr/src/cobbler
 
 VOLUME /usr/src/cobbler/rpm-build

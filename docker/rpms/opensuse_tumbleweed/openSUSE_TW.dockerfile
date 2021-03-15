@@ -34,7 +34,7 @@ RUN ["a2enmod", "proxy_http"]
 RUN ["a2enmod", "wsgi"]
 
 WORKDIR /test_dir
-COPY . /test_dir
+COPY ../.. /test_dir
 COPY ./tests/setup_files/pam/login /etc/pam.d/login
 COPY ./tests/setup_files/supervisord/supervisord.conf /etc/supervisord.conf
 COPY ./tests/setup_files/supervisord/conf.d /etc/supervisord/conf.d
